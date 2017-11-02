@@ -92,7 +92,7 @@ key = RSA.generate(1024)
 public = key.publickey()
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server = ('localhost', 4444)
+server = ('lox.hopto.org', 4444)
 print('Connecting to %s on port %s' %server)
 sock.connect(server)
 print('Connected!')
