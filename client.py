@@ -1,5 +1,6 @@
 #!/usr/bin/python
-import socket, threading, Crypto
+import socket, threading
+#import Crypto
 from Crypto.PublicKey import RSA
 from tkinter import *
 
@@ -39,7 +40,7 @@ def getInput(event, e):
                 w.pack()
             s = nick[0] + ' > ' + s
         s = s.encode()
-        s = servkey.encrypt(s, 32)[0]
+##        s = servkey.encrypt(s, 32)[0]
         sock.send(s)
         e.delete(0, END)
 
@@ -55,10 +56,10 @@ def rMsg(e):
         try:
             chuncks = []
             msg = sock.recv(1024)
-            try:
-                msg = key.decrypt(msg).decode()
-            except:
-                msg = msg.decode()
+##            try:
+##                msg = key.decrypt(msg).decode()
+##            except:
+            msg = msg.decode()
             if msg == '\x00':
                 continue
             chunck(msg, 50, chuncks)
